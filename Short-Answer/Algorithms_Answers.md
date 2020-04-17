@@ -4,11 +4,11 @@
 
 a)
 
-0(n)
+o(n)
 
 b)
 
-0(n^2)
+0(n log n)
 
 c)
 
@@ -17,15 +17,23 @@ c)
 
 ## Exercise II
 
-Runtime complexity 0(n)
+Runtime complexity 0(log n) - Binary search
 
 Take the height of building in n
-start at ground floor
+start at n / 2 floor
 drop egg
-if egg breaks 
-    set f to n - 1
-    exit
-else repeat
+if egg breaks
+    n = n - 1
+    drop egg
+    if egg does not break
+        return n
+    else
+        remove all floors to the right
+    repeat
+else
+    remove all floors to left
+    repeat
+   
 
    
        

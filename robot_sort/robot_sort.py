@@ -9,6 +9,14 @@ class SortingRobot:
         self._light = "OFF"     # The state of the robot's light
         self._time = 0          # A time counter (stretch)
 
+    # Something like bubble sort...
+    # Start at 0
+    # Pick up first item
+    # Move right until you cant move right any more
+    # Compare item to next item, if greater, swap largest should bubble to the end
+    # Repeat from right to left using -1 comparison to get smallest to start
+    # Figure out it sucked then fiddle with it until it works
+
     def can_move_right(self):
         """
         Returns True if the robot can move right or False if it's
@@ -98,34 +106,34 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # # Turn Light on and move all the way to the right..
-        # while self.light_is_on() is False:
-        #     while self.can_move_right():
-        # # Pick up initial element        
-        #         self.swap_item()
-        #         self.move_right()
-        # # Compare item if its greater (1) then swap
-        #         if self.compare_item() == 1:
-        #             self.swap_item()
-        #         self.move_left()
-        #         self.swap_item()
-        #         self.move_right()
-        # # When all way to right turn light on
-        #     self.set_light_on()
-        # # Repeat steps in reverse
-        #     while self.can_move_left():
-        #         self.swap_item()
-        #         self.move_left()
+        # Turn Light on and move all the way to the right..
+        while self.light_is_on() is False:
+            while self.can_move_right():
+        # Pick up initial element        
+                self.swap_item()
+                self.move_right()
+        # Compare item if its greater (1) then swap
+                if self.compare_item() == 1:
+                    self.swap_item()
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+        # When all way to right turn light on
+            self.set_light_on()
+        # Repeat steps in reverse
+            while self.can_move_left():
+                self.swap_item()
+                self.move_left()
 
-        # # Compare if is less than (-1) turn light off
-        #         if self.compare_item() == -1:
-        #             self.set_light_off()
+        # Compare if is less than (-1) turn light off
+                if self.compare_item() == -1:
+                    self.set_light_off()
 
-        #         self.move_right()
-        #         self.swap_item()
-        #         self.move_left()
+                self.move_right()
+                self.swap_item()
+                self.move_left()
 
-        
+
 
 
 if __name__ == "__main__":
